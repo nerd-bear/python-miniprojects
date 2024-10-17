@@ -1,12 +1,12 @@
 import requests
 import json
 
-while (True):
+while True:
     ip_address = input("Ip Address to trace: ")
     request = requests.get(f"https://ipinfo.io/{ip_address}/json")
 
-    match (request.status_code):
-        case (200):
+    match request.status_code:
+        case 200:
             request_json = json.loads(request.content)
             print(f"City: {request_json['city']}")
             print(f"Region: {request_json['region']}")
